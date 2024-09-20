@@ -138,6 +138,7 @@
         box-shadow: 0 0 15px var(--shadow-color);
         text-align: left;
         font-size: 16px; 
+        overflow: scroll;
         color: var(--txt-color);
         position: relative;
         border: 2px solid var(--shadow-color); 
