@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Letter For Oca</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="envelope-wrapper">
+            <div class="envelope">
+                <div class="letter">
+                    <div class="text">
+                        <strong>Dear Oca,</strong>
+                        <p>
+                            Hello Oca! How are you? I hope you’re doing well! 😊 It feels like it’s been a while 
+                            since I’ve seen you at church, or maybe it’s just me because I’ve been missing a lot lately. 
+                            Hmm... 🤔 I think I might just be assuming that you’re busy, but remember to 
+                            take care of your health and make sure to rest. It’s important! Remember, 
+                            your body is your home, so take care of it with love❤️.
+                        </p>
+                        <p>
+                            Honestly, I’m a bit unsure what to say to you 😜. But I just want to wish you good 
+                            health and success in everything you’re doing. And don’t forget about God! Make sure 
+                            to spend time in devotion, and try not to skip church.
+                        </p>
+                        <p>
+                            That’s all from me. Thank you for taking the time to read this letter. Don’t forget to 
+                            keep smiling! Last but not least, God bless you!
+                        </p>
+                    </div>
+                </div>
+            </div>
+                <button class="toggle-button">Open</button>
+            </div>
+        </div>
+
+        <div class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="modal-text"></div>
+            </div>
+        </div>
+
+        <script>
+            const envelope = document.querySelector('.envelope-wrapper');
+            const button = document.querySelector('.toggle-button');
+            const letter = document.querySelector('.letter');
+            const modal = document.querySelector('.modal');
+            const closeButton = document.querySelector('.close-button');
+            const modalText = document.querySelector('.modal-text');
+            const letterText = document.querySelector('.text').innerHTML;
+            const textElement = document.querySelector('.text');
+
+            button.addEventListener('click', () => {
+                envelope.classList.toggle('flap');
+                if (textElement.style.visibility === 'hidden' || textElement.style.visibility === '') {
+                    textElement.style.visibility = 'visible';
+                     button.textContent = 'Close';
+                      letter.style.backgroundColor = 'var(--primary)';
+                } else {
+                    textElement.style.visibility = 'hidden';
+                     button.textContent = 'Open';
+                     letter.style.backgroundColor = 'red';
+                }
+            });
+
+            letter.addEventListener('click', () => {
+                modalText.innerHTML = letterText;  
+                modal.style.display = 'flex';
+            });
+
+            closeButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        </script>
+    </body>
+    </html>
